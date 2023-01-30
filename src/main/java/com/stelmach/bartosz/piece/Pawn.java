@@ -44,11 +44,6 @@ public class Pawn extends Piece {
         return endCoordinates.getRank() - getRank() == expectedRankChange && Math.abs(endCoordinates.getFile() - getFile()) == 1;
     }
 
-    public Coordinates getEnPassantTakingCoordinates(Coordinates endCoordinates) {
-        int expectedEndRankChange = colour == WHITE ? -1 : 1;
-        return new Coordinates(endCoordinates.getRank() + expectedEndRankChange, endCoordinates.getFile());
-    }
-
     public enum PawnMoveType {
 		NORMAL, FIRST, TAKING, EN_PASSANT
 	}
