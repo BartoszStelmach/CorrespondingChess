@@ -1,5 +1,0 @@
-2023.01.30 18:55:59.735 [TRACE] com.stelmach.bartosz.ChessApp: Starting the SpringBoot Chess app
-2023.01.30 18:56:00.101 [INFO] com.stelmach.bartosz.ChessApp: Starting ChessApp using Java 17.0.5 on DESKTOP-C8E0V2K with PID 26956 (C:\Users\Gosu\IdeaProjects\docker\Chess\build\classes\java\main started by Gosu in C:\Users\Gosu\IdeaProjects\docker\Chess)
-2023.01.30 18:56:00.104 [DEBUG] com.stelmach.bartosz.ChessApp: Running with Spring Boot v2.7.3, Spring v5.3.22
-2023.01.30 18:56:00.105 [INFO] com.stelmach.bartosz.ChessApp: No active profile set, falling back to 1 default profile: "default"
-2023.01.30 18:56:03.573 [INFO] com.stelmach.bartosz.ChessApp: Started ChessApp in 3.767 seconds (JVM running for 4.456)
