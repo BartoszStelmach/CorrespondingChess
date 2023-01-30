@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'stelmach.bartosz'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-parent:2.7.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.3'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.3'
+    implementation 'mysql:mysql-connector-java:8.0.30'
+//    implementation 'com.mysql:mysql-connector-j:8.0.32'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.13.0'
+
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.9.0'
+    testImplementation 'io.cucumber:cucumber-java:7.8.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.8.0'
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+sourceCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_14

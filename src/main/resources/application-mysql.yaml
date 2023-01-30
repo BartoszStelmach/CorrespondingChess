@@ -1,0 +1,21 @@
+database: mysql
+spring:
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost/chess}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASS:password}
+#    datasource:
+#      url: jdbc:mysql://localhost:3307/chess
+#      username: root
+#      password: password
+#      driverClassName: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+
