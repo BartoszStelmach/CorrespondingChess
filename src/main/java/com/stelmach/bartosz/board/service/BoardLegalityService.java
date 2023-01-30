@@ -25,7 +25,7 @@ public class BoardLegalityService {
 		Piece piece = moveDetails.getPieceToMove();
 		Coordinates endCoordinates = moveDetails.getEndCoordinates();
 		verifyMoveChecking(moveDetails.isChecking(), piece, endCoordinates, board);
-		verifyMoveTaking(moveDetails.isTaking(), endCoordinates, board);
+		verifyMoveTaking(moveDetails.isTaking(), moveDetails.getCoordinatesToBeTaken(), board);
 		verifyObstacles(piece, endCoordinates, board);
 	}
 
@@ -41,8 +41,8 @@ public class BoardLegalityService {
 		if (!isNotationChecking && isOpponentKingReachable) throw new IllegalArgumentException("The move should be checking.");
 	}
 
-	public void verifyMoveTaking(boolean isNotationTaking, Coordinates endCoordinates, Board board) {
-		if(isNotationTaking != isPieceOnSquare(endCoordinates, board)) throw new IllegalArgumentException("Can't take empty square or can't move to occupied square.");
+	public void verifyMoveTaking(boolean isNotationTaking, Coordinates takingCoordinates, Board board) {
+		if(isNotationTaking != isPieceOnSquare(takingCoordinates, board)) throw new IllegalArgumentException("Can't take empty square or can't move to occupied square.");
 	}
 
 	public boolean isPieceOnSquare(Coordinates coordinates, Board board) {
