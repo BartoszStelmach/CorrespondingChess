@@ -1,6 +1,7 @@
 package com.stelmach.bartosz.piece;
 
-import com.stelmach.bartosz.board.component.Coordinates;
+import com.stelmach.bartosz.entity.Coordinates;
+import com.stelmach.bartosz.entity.piece.Pawn;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.stelmach.bartosz.board.component.Board.PieceColour;
-import static com.stelmach.bartosz.board.component.Board.PieceColour.BLACK;
-import static com.stelmach.bartosz.board.component.Board.PieceColour.WHITE;
+import static com.stelmach.bartosz.entity.Board.PieceColour;
+import static com.stelmach.bartosz.entity.Board.PieceColour.BLACK;
+import static com.stelmach.bartosz.entity.Board.PieceColour.WHITE;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 

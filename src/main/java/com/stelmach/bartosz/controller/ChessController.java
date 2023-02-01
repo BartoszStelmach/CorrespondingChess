@@ -1,11 +1,11 @@
 package com.stelmach.bartosz.controller;
 
-import com.stelmach.bartosz.board.component.Board.PieceColour;
-import com.stelmach.bartosz.board.service.BoardDbService;
-import com.stelmach.bartosz.game.component.Game;
-import com.stelmach.bartosz.game.service.GameCreator;
-import com.stelmach.bartosz.game.service.GameService;
-import com.stelmach.bartosz.move.service.MovePlayer;
+import com.stelmach.bartosz.entity.Board.PieceColour;
+import com.stelmach.bartosz.entity.Game;
+import com.stelmach.bartosz.service.BoardDbService;
+import com.stelmach.bartosz.service.GameCreator;
+import com.stelmach.bartosz.service.GameService;
+import com.stelmach.bartosz.service.MovePlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
