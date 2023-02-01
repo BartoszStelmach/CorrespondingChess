@@ -14,9 +14,13 @@ import java.util.List;
 @Service @Slf4j
 public class GameService {
 	@Autowired
-	private GameRepository gameRepository;
-	@Autowired
-	private MoveRepository moveRepository;
+	public GameService(GameRepository gameRepository, MoveRepository moveRepository) {
+		this.gameRepository = gameRepository;
+		this.moveRepository = moveRepository;
+	}
+
+	private final GameRepository gameRepository;
+	private final MoveRepository moveRepository;
 
 	public Game getGame(int id) {
 		return gameRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Game not found for the id: " + id));

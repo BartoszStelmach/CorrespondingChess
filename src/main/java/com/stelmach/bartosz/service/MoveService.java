@@ -12,13 +12,17 @@ import javax.transaction.Transactional;
 @Service
 public class MoveService {
     @Autowired
-    private BoardDbService boardDbService;
-    @Autowired
-    private MoveRepository moveRepository;
-    @Autowired
-    private GameRepository gameRepository;
-    @Autowired
-    private GameFlagsRepository gameFlagsRepository;
+    public MoveService(BoardDbService boardDbService, MoveRepository moveRepository, GameRepository gameRepository, GameFlagsRepository gameFlagsRepository) {
+        this.boardDbService = boardDbService;
+        this.moveRepository = moveRepository;
+        this.gameRepository = gameRepository;
+        this.gameFlagsRepository = gameFlagsRepository;
+    }
+
+    private final BoardDbService boardDbService;
+    private final MoveRepository moveRepository;
+    private final GameRepository gameRepository;
+    private final GameFlagsRepository gameFlagsRepository;
 
     @Transactional
     public void commitMove(Game game, Move move, GameFlags gameFlags, BoardDbWrapper boardDbWrapper, Board board){

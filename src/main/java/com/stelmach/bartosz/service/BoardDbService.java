@@ -13,9 +13,13 @@ import java.io.*;
 @Service
 public class BoardDbService {
 	@Autowired
-	private BoardDbWrapperRepository boardDbWrapperRepository;
-	@Autowired
-	private GameService gameService;
+	public BoardDbService(BoardDbWrapperRepository boardDbWrapperRepository, GameService gameService) {
+		this.boardDbWrapperRepository = boardDbWrapperRepository;
+		this.gameService = gameService;
+	}
+
+	private final BoardDbWrapperRepository boardDbWrapperRepository;
+	private final GameService gameService;
 
 	public Board getBoard(int gameId) {
 		return getBoardDbWrapper(gameId).getBoard();

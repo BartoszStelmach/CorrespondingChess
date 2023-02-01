@@ -23,9 +23,13 @@ import static com.stelmach.bartosz.entity.piece.Pawn.PawnMoveType.TAKING;
 @Service
 public class MoveParser {
 	@Autowired
-	private MoveNotationParser moveNotationParser;
-	@Autowired
-	private BoardLegalityService boardLegalityService;
+	public MoveParser(MoveNotationParser moveNotationParser, BoardLegalityService boardLegalityService) {
+		this.moveNotationParser = moveNotationParser;
+		this.boardLegalityService = boardLegalityService;
+	}
+
+	private final MoveNotationParser moveNotationParser;
+	private final BoardLegalityService boardLegalityService;
 
 	public MoveDetails parseMove(String move, PieceColour pieceColour, Board board) {
 		moveNotationParser.verifyGeneralLength(move);

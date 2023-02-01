@@ -10,17 +10,21 @@ import static com.stelmach.bartosz.entity.Board.PieceColour;
 @Service
 public class MovePlayer {
     @Autowired
-    private GameService gameService;
-    @Autowired
-    private BoardDbService boardDbService;
-    @Autowired
-    private GameFlagsService gameFlagsService;
-    @Autowired
-    private MoveParser moveParser;
-    @Autowired
-    private BoardLegalityService boardLegalityService;
-    @Autowired
-    private MoveService moveService;
+    public MovePlayer(GameService gameService, BoardDbService boardDbService, GameFlagsService gameFlagsService, MoveParser moveParser, BoardLegalityService boardLegalityService, MoveService moveService) {
+        this.gameService = gameService;
+        this.boardDbService = boardDbService;
+        this.gameFlagsService = gameFlagsService;
+        this.moveParser = moveParser;
+        this.boardLegalityService = boardLegalityService;
+        this.moveService = moveService;
+    }
+
+    private final GameService gameService;
+    private final BoardDbService boardDbService;
+    private final GameFlagsService gameFlagsService;
+    private final MoveParser moveParser;
+    private final BoardLegalityService boardLegalityService;
+    private final MoveService moveService;
 
     public void playMove(int id, PieceColour colour, String notation) {
         Game game = gameService.getGame(id);

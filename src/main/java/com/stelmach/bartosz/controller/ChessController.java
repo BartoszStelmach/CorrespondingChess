@@ -15,13 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ChessController {
 	@Autowired
-	private GameCreator gameCreator;
-	@Autowired
-	private GameService gameService;
-	@Autowired
-	private MovePlayer movePlayer;
-	@Autowired
-	private BoardDbService boardDbService;
+	public ChessController(GameCreator gameCreator, GameService gameService, MovePlayer movePlayer, BoardDbService boardDbService) {
+		this.gameCreator = gameCreator;
+		this.gameService = gameService;
+		this.movePlayer = movePlayer;
+		this.boardDbService = boardDbService;
+	}
+
+	private final GameCreator gameCreator;
+	private final GameService gameService;
+	private final MovePlayer movePlayer;
+	private final BoardDbService boardDbService;
 
 	@PostMapping("/game")
 	public Game startGame(@RequestParam String firstPlayerName, @RequestParam String secondPlayerName, @RequestParam boolean areColoursRandom) {

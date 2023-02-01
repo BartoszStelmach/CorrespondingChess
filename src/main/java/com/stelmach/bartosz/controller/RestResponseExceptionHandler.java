@@ -13,9 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.Arrays;
 
 @RestControllerAdvice @Slf4j
-public class RestResponseExceptionHandler
-        extends ResponseEntityExceptionHandler {
-
+public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = IllegalArgumentException.class)
     protected ResponseEntity<Object> handleClientError(RuntimeException ex, WebRequest request) {
         return processException(ex, request, "Cannot perform specified action. Please check if it's correct.\nCause: " + ex.getMessage(), HttpStatus.BAD_REQUEST);

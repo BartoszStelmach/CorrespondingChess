@@ -18,11 +18,15 @@ import java.util.List;
 @Service @Slf4j
 public class GameCreator {
 	@Autowired
-	private GameRepository gameRepository;
-	@Autowired
-	private GameFlagsRepository gameFlagsRepository;
-	@Autowired
-	private BoardDbService boardDbService;
+	public GameCreator(GameRepository gameRepository, GameFlagsRepository gameFlagsRepository, BoardDbService boardDbService) {
+		this.gameRepository = gameRepository;
+		this.gameFlagsRepository = gameFlagsRepository;
+		this.boardDbService = boardDbService;
+	}
+
+	private final GameRepository gameRepository;
+	private final GameFlagsRepository gameFlagsRepository;
+	private final BoardDbService boardDbService;
 
 	public Game createGame(String firstPlayerName, String secondPlayerName, boolean areColoursRandom) {
 		List<String> namesList = convertNamesToList(firstPlayerName, secondPlayerName, areColoursRandom);

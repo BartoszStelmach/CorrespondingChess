@@ -22,9 +22,13 @@ import static com.stelmach.bartosz.entity.MoveDetails.CastlingType.SHORT;
 @Service
 public class GameFlagsService {
     @Autowired
-    private BoardLegalityService boardLegalityService;
-    @Autowired
-    private GameFlagsRepository gameFlagsRepository;
+    public GameFlagsService(BoardLegalityService boardLegalityService, GameFlagsRepository gameFlagsRepository) {
+        this.boardLegalityService = boardLegalityService;
+        this.gameFlagsRepository = gameFlagsRepository;
+    }
+
+    private final BoardLegalityService boardLegalityService;
+    private final GameFlagsRepository gameFlagsRepository;
 
     public GameFlags updateGameFlags(GameFlags gameFlags, MoveDetails moveDetails, Piece pieceToMove){
         gameFlags.setWhiteToMove(moveDetails.getColour() != WHITE);
