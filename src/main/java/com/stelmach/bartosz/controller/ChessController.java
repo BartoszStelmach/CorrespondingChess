@@ -23,22 +23,22 @@ public class ChessController {
 	@Autowired
 	private BoardDbService boardDbService;
 
-	@PostMapping("/startGame")
+	@PostMapping("/game")
 	public Game startGame(@RequestParam String firstPlayerName, @RequestParam String secondPlayerName, @RequestParam boolean areColoursRandom) {
 		Game game = gameCreator.createGame(firstPlayerName, secondPlayerName, areColoursRandom);
 		return gameCreator.commitGame(game);
 	}
 
-	@GetMapping("/getGame")
+	@GetMapping("/game")
 	public Game getGame(@RequestParam int id) {
 		return gameService.getGameWithMoves(id);
 	}
 
-	@GetMapping("/getBoard")
+	@GetMapping("/board")
 	public String getBoard(@RequestParam int gameId) {
 		return boardDbService.getBoard(gameId).getGraphicalRepresentation();
 	}
-	@PostMapping("/playMove")
+	@PostMapping("/move")
 	public String playMove(@RequestParam int id, @RequestParam PieceColour colour, @RequestParam String move) {
 		movePlayer.playMove(id, colour, move);
 		return getBoard(id);
