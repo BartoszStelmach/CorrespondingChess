@@ -16,7 +16,7 @@ public abstract class Piece implements Serializable {
 	protected Coordinates coordinates;
 	protected PieceType type;
 	protected final PieceColour colour;
-	protected final boolean isBlockable;
+	protected final boolean blockable;
 	protected final Range<Integer> allowedRankChange;
 	protected final Range<Integer> allowedFileChange;
 
@@ -32,11 +32,11 @@ public abstract class Piece implements Serializable {
 				areSpecificConditionsSatisfied(absRankChange, absFileChange);
 	}
 
-	public Piece(int rank, int file, PieceType type, PieceColour colour, boolean isBlockable, Range<Integer> allowedRankChange, Range<Integer> allowedFileChange) {
+	public Piece(int rank, int file, PieceType type, PieceColour colour, boolean blockable, Range<Integer> allowedRankChange, Range<Integer> allowedFileChange) {
 		this.coordinates = new Coordinates(rank, file);
 		this.type = type;
 		this.colour = colour;
-		this.isBlockable = isBlockable;
+		this.blockable = blockable;
 		this.allowedRankChange = allowedRankChange;
 		this.allowedFileChange = allowedFileChange;
 	}
@@ -65,7 +65,7 @@ public abstract class Piece implements Serializable {
 				"coordinates=" + coordinates +
 				", type=" + type +
 				", colour=" + colour +
-				", isBlockable=" + isBlockable +
+				", isBlockable=" + blockable +
 				", allowedRankChange=" + allowedRankChange +
 				", allowedFileChange=" + allowedFileChange +
 				'}';

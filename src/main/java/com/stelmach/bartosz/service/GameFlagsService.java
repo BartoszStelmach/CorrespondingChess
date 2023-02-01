@@ -40,9 +40,9 @@ public class GameFlagsService {
     }
 
     private void setFlagsForWhite(GameFlags gameFlags, MoveDetails moveDetails, Piece pieceToMove) {
-        if(pieceToMove.getType() == KING) gameFlags.setHasWhiteKingMoved(true);
-        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 0 && pieceToMove.getCoordinates().getFile() == 0) gameFlags.setHasWhiteARookMoved(true);
-        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 0 && pieceToMove.getCoordinates().getFile() == 7) gameFlags.setHasWhiteHRookMoved(true);
+        if(pieceToMove.getType() == KING) gameFlags.setWhiteKingMoved(true);
+        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 0 && pieceToMove.getCoordinates().getFile() == 0) gameFlags.setWhiteFirstFileRookMoved(true);
+        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 0 && pieceToMove.getCoordinates().getFile() == 7) gameFlags.setWhiteLastFileRookMoved(true);
 
         if(moveDetails.isChecking()) gameFlags.setBlackKingChecked(true);
 
@@ -51,9 +51,9 @@ public class GameFlagsService {
     }
 
     private void setFlagsForBlack(GameFlags gameFlags, MoveDetails moveDetails, Piece pieceToMove) {
-        if(pieceToMove.getType() == KING ) gameFlags.setHasBlackKingMoved(true);
-        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 7 && pieceToMove.getCoordinates().getFile() == 0) gameFlags.setHasBlackARookMoved(true);
-        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 7 && pieceToMove.getCoordinates().getFile() == 7) gameFlags.setHasBlackHRookMoved(true);
+        if(pieceToMove.getType() == KING ) gameFlags.setBlackKingMoved(true);
+        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 7 && pieceToMove.getCoordinates().getFile() == 0) gameFlags.setBlackFirstFileRookMoved(true);
+        else if(pieceToMove.getType() == ROOK && pieceToMove.getCoordinates().getRank() == 7 && pieceToMove.getCoordinates().getFile() == 7) gameFlags.setBlackLastFileRookMoved(true);
 
         if(moveDetails.isChecking()) gameFlags.setWhiteKingChecked(true);
 

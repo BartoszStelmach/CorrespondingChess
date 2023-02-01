@@ -13,36 +13,36 @@ import static com.stelmach.bartosz.entity.piece.Pawn.PawnMoveType.EN_PASSANT;
 @ToString
 @AllArgsConstructor @NoArgsConstructor
 public class MoveDetails {
-    protected String notation;
-    protected PieceColour colour;
-    protected PieceType pieceType;
-    protected boolean isTaking;
-    protected boolean isChecking;
-    protected boolean isMating;
-    protected CastlingType castlingType;
-    protected boolean isAmbiguous;
-    protected Coordinates endCoordinates;
-    protected Piece pieceToMove = null;
-    protected Coordinates coordinatesToBeTaken;
-    protected PawnMoveType pawnMoveType = null;
-    protected boolean isPromoting;
-    protected PieceType promotionPieceType;
+    private String notation;
+    private PieceColour colour;
+    private PieceType pieceType;
+    private boolean taking;
+    private boolean checking;
+    private boolean mating;
+    private CastlingType castlingType;
+    private boolean ambiguous;
+    private Coordinates endCoordinates;
+    private Piece pieceToMove = null;
+    private Coordinates coordinatesToBeTaken;
+    private PawnMoveType pawnMoveType = null;
+    private boolean promoting;
+    private PieceType promotionPieceType;
 
-    public MoveDetails(String notation, PieceColour colour, PieceType pieceType, boolean isTaking, boolean isChecking, boolean isMating, CastlingType castlingType, boolean isAmbiguous, Coordinates endCoordinates) {
+    public MoveDetails(String notation, PieceColour colour, PieceType pieceType, boolean taking, boolean checking, boolean mating, CastlingType castlingType, boolean ambiguous, Coordinates endCoordinates) {
         this.notation = notation;
         this.colour = colour;
         this.pieceType = pieceType;
-        this.isTaking = isTaking;
-        this.isChecking = isChecking;
-        this.isMating = isMating;
+        this.taking = taking;
+        this.checking = checking;
+        this.mating = mating;
         this.castlingType = castlingType;
-        this.isAmbiguous = isAmbiguous;
+        this.ambiguous = ambiguous;
         this.endCoordinates = endCoordinates;
         this.coordinatesToBeTaken = endCoordinates;
     }
     public MoveDetails(BasicMoveDetails basicMoveDetails, SpecificMoveDetails specificMoveDetails, Coordinates endCoordinates) {
         this(basicMoveDetails.notation, basicMoveDetails.colour, basicMoveDetails.pieceType, specificMoveDetails.isTaking, basicMoveDetails.isChecking, basicMoveDetails.isMating, specificMoveDetails.castlingType, basicMoveDetails.isAmbiguous, endCoordinates);
-        this.isPromoting = specificMoveDetails.isPromoting;
+        this.promoting = specificMoveDetails.isPromoting;
         this.promotionPieceType = specificMoveDetails.promotionPieceType;
     }
 

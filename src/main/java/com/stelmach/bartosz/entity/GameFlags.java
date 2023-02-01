@@ -18,23 +18,19 @@ public class GameFlags {
 	@OneToOne
 	@JoinColumn(name = "game_id", nullable = false)
 	private Game game;
-	private boolean isWhiteToMove = true;
-	private boolean hasWhiteKingMoved = false;
-	private boolean hasBlackKingMoved = false;
-	@Column(name = "has_white_a_rook_moved")
-	private boolean hasWhiteARookMoved = false;
-	@Column(name = "has_white_h_rook_moved")
-	private boolean hasWhiteHRookMoved = false;
-	@Column(name = "has_black_a_rook_moved")
-	private boolean hasBlackARookMoved = false;
-	@Column(name = "has_black_h_rook_moved")
-	private boolean hasBlackHRookMoved = false;
-	private boolean isWhiteKingChecked = false;
-	private boolean isBlackKingChecked = false;
-	private boolean isSomethingAttackingWhiteShortCastleSquares = false;
-	private boolean isSomethingAttackingWhiteLongCastleSquares = false;
-	private boolean isSomethingAttackingBlackShortCastleSquares = false;
-	private boolean isSomethingAttackingBlackLongCastleSquares = false;
+	private boolean whiteToMove = true;
+	private boolean whiteKingMoved = false;
+	private boolean blackKingMoved = false;
+	private boolean whiteFirstFileRookMoved = false;
+	private boolean whiteLastFileRookMoved = false;
+	private boolean blackFirstFileRookMoved = false;
+	private boolean blackLastFileRookMoved = false;
+	private boolean whiteKingChecked = false;
+	private boolean blackKingChecked = false;
+	private boolean somethingAttackingWhiteShortCastleSquares = false;
+	private boolean somethingAttackingWhiteLongCastleSquares = false;
+	private boolean somethingAttackingBlackShortCastleSquares = false;
+	private boolean somethingAttackingBlackLongCastleSquares = false;
 
 	public GameFlags(Game game) {
 		this.game = game;
