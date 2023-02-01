@@ -36,8 +36,10 @@ public class GameService {
 			String pairOfMoves = String.valueOf(i/2 + 1);
 			pairOfMoves += ". ";
 			pairOfMoves += moveList.get(i).getNotation();
-			pairOfMoves += " ";
-			pairOfMoves += moveList.get(i+1).getNotation();
+			if (moveList.size() > i+1)	{
+				pairOfMoves += " ";
+				pairOfMoves += moveList.get(i+1).getNotation();
+			}
 			resultStrings.add(pairOfMoves);
 		}
 		return resultStrings;
