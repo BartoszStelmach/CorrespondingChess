@@ -22,5 +22,4 @@ public class Move {
 		this.game = game;
 		this.notation = notation;
 	}
-
 }

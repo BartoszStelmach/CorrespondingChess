@@ -14,10 +14,6 @@ import static com.stelmach.bartosz.entity.MoveDetails.CastlingType.SHORT;
 
 @Service
 public class MoveNotationParser {
-	public void verifyGeneralLength(String move) {
-		if (move.length() < 2 || move.length() > 7) throw new IllegalArgumentException("Length of the move notation is incorrect.");
-	}
-
 	public void verifyLength(MoveDetails moveDetails) {
 		int correctLength;
 		if (moveDetails.getCastlingType() != null) correctLength = getCastlingNotationLength(moveDetails.getCastlingType());
@@ -32,19 +28,6 @@ public class MoveNotationParser {
 	}
 	private int getCastlingNotationLength(CastlingType castlingType) {
 		return castlingType == LONG ? 5 : 3;
-	}
-
-	public void verifyAllCharacters(String move) {
-		String pieceRegex = "KQBNRP";
-		String rankRegex = "1-8";
-		String fileRegex = "a-h";
-		String othersRegex = "x+#O\\-=";
-		String finalRegex = "[^" + pieceRegex + rankRegex + fileRegex + othersRegex + "]";
-
-		Pattern pattern = Pattern.compile(finalRegex);
-		Matcher matcher = pattern.matcher(move);
-		boolean isAnyCharacterNotAllowed = matcher.find();
-		if (isAnyCharacterNotAllowed) throw new IllegalArgumentException("There are illegal characters in the move notation.");
 	}
 
 	public boolean isPawnMove(String move) {

@@ -32,9 +32,6 @@ public class MoveParser {
 	private final BoardLegalityService boardLegalityService;
 
 	public MoveDetails parseMove(String move, PieceColour pieceColour, Board board) {
-		moveNotationParser.verifyGeneralLength(move);
-		moveNotationParser.verifyAllCharacters(move);
-
 		MoveDetails.BasicMoveDetails basicMoveDetails = parseMoveCommon(move, pieceColour);
 		MoveDetails.SpecificMoveDetails specificMoveDetails = parseMoveSpecific(basicMoveDetails);
 
