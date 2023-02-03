@@ -2,12 +2,13 @@
 http://localhost:8080/swagger-ui/index.html  
 Application that allows people to play corresponding chess by sending HTTP requests.
 Game can be started just by sending players names. ID returned from that call will serve as a reference to the game when sending the move that player wants to perform.
----
+
+
 
 ## Moves notation
 Moves have to be written in accordance with the rules of commonly used algebraic chess notation:
 https://en.wikipedia.org/wiki/Algebraic_notation_(chess)
----
+
 
 ## Sample calls
 ### 1. Start game
@@ -38,18 +39,18 @@ Request example:
    'http://localhost:8080/playMove?id=35&colour=WHITE&move=e4' \
    -H 'accept: */*' \
    -d ''
----
+
 
 ## Technologies
-<font color="Aquamarine">Core:</font> Java 14, SpringBoot, Lombok  
-<font color="Aquamarine">DB:</font> MySQL, Hibernate  
-<font color="Aquamarine">API:</font> REST, Swagger  
-<font color="Aquamarine">Logging:</font> Slf4j  
-<font color="Aquamarine">Exception:</font> Spring ControllerAdvice  
-<font color="Aquamarine">Build:</font> Gradle  
-<font color="Aquamarine">Deployment:</font> Docker  
-<font color="Aquamarine">Version control system:</font> Git
----
+$\textcolor{Aquamarine}{\text{Core:}}$ Java 14, SpringBoot, Lombok  
+$\textcolor{Aquamarine}{\text{DB:}}$ MySQL, Hibernate  
+$\textcolor{Aquamarine}{\text{API:}}$ REST, Swagger  
+$\textcolor{Aquamarine}{\text{Logging:}}$ Slf4j  
+$\textcolor{Aquamarine}{\text{Exception:}}$ Spring ControllerAdvice  
+$\textcolor{Aquamarine}{\text{Build:}}$ Gradle  
+$\textcolor{Aquamarine}{\text{Deployment:}}$ Docker  
+$\textcolor{Aquamarine}{\text{Version control system:}}$ Git
+
 
 ## Successful flow for move request
 1. HTTP request is picked by REST Controller.
@@ -61,7 +62,7 @@ Request example:
 7. Board and complementary objects are changed according to the move. 
 8. Objects are persisted in the database. 
 9. Simple text graphical representation is returned to the caller.
----
+
 
 ## Docker Deployment
 cd <PROJECT_PATH>  
@@ -79,7 +80,6 @@ docker exec -it mysqlserver mysql -p -e "SELECT * FROM game" chess
 
 docker exec -t -i mycontainer /bin/bash  
 cat logs/chess-app.log
----
 
 ### <font color="Red">Not yet implemented</font>
 1. Castling
