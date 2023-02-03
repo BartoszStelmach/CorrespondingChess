@@ -26,8 +26,8 @@ public class MovePlayer {
     private final BoardLegalityService boardLegalityService;
     private final MoveService moveService;
 
-    public void playMove(int id, PieceColour colour, String notation) {
-        Game game = gameService.getGame(id);
+    public void playMove(int gameId, PieceColour colour, String notation) {
+        Game game = gameService.getGame(gameId);
         GameFlags gameFlags = gameFlagsService.getGameFlags(game);
         BoardDbWrapper boardDbWrapper = boardDbService.getBoardDbWrapper(game);
         Board board = boardDbWrapper.getBoard();
