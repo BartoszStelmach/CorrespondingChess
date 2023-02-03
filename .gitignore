@@ -5,6 +5,7 @@ target/
 !**/src/main/**/build/
 !**/src/test/**/build/
 logs
+readmeIJ.md
 
 ### IntelliJ IDEA ###
 .idea/
