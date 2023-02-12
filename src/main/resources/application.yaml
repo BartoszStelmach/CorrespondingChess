@@ -2,8 +2,8 @@ database: mysql
 spring:
   datasource:
     url: ${MYSQL_URL:jdbc:mysql://localhost/chess}
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASS:password}
+    username: ${MYSQL_USER:ENC(WPM70h9d+l7oO5FYvFQsAw==)}
+    password: ${MYSQL_PASS:ENC(6NIAYX+OnGzZWdCcRwYK5+lrHMj/uR14)}
     driverClassName: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -14,3 +14,8 @@ spring:
   sql:
     init:
       mode: always
+
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator

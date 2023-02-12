@@ -1,5 +1,6 @@
 package com.stelmach.bartosz;
 
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
+@EnableEncryptableProperties
 @SpringBootApplication	@Slf4j
 public class ChessApp {
 	public static void main(String[] args) {

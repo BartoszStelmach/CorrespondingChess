@@ -24,6 +24,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.13.0'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot:3.0.5'
 
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
 
