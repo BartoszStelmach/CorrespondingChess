@@ -19,26 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class PawnTest {
-//    private Pawn pawn;
-
-//    @BeforeEach
-//    void setUp() {
-//        pawn = new Pawn(0, 0, WHITE);
-//    }
-
-    @BeforeAll
-    static void beforeAll() {
-
-    }
-
-    @Test
-    void areSpecificConditionsSatisfied() {
-    }
-
-    @Test
-    void determineMoveType() {
-    }
-
     private static Stream<Arguments> provideCoordinatesForTestV2() {
         return Stream.of(
                 Arguments.of(new Pawn(1, 1, WHITE), new Coordinates(2,1)),
@@ -51,7 +31,8 @@ class PawnTest {
                 Arguments.of(new Pawn(4, 4, WHITE), new Coordinates(5,4)),
                 Arguments.of(new Pawn(4, 6, WHITE), new Coordinates(5,6)),
                 Arguments.of(new Pawn(5, 2, WHITE), new Coordinates(6,2)),
-                Arguments.of(new Pawn(5, 0, WHITE), new Coordinates(6,0)),                Arguments.of(new Pawn(1, 1, WHITE), new Coordinates(2,1)),
+                Arguments.of(new Pawn(5, 0, WHITE), new Coordinates(6,0)),
+                Arguments.of(new Pawn(1, 1, WHITE), new Coordinates(2,1)),
                 Arguments.of(new Pawn(6, 3, BLACK), new Coordinates(5,3)),
                 Arguments.of(new Pawn(6, 6, BLACK), new Coordinates(5,6)),
                 Arguments.of(new Pawn(2, 2, BLACK), new Coordinates(1,2)),
@@ -84,13 +65,5 @@ class PawnTest {
     @MethodSource({"provideCoordinatesForTestV1", "provideCoordinatesForTestV2"})
     void canNormalMove(Pawn pawn, Coordinates endCoordinates) {
         assertTrue(pawn.canNormalMove(endCoordinates));
-    }
-
-    @Test
-    void canFirstMove() {
-    }
-
-    @Test
-    void canTakeMove() {
     }
 }
