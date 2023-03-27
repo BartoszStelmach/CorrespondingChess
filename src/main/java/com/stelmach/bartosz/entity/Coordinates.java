@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @AllArgsConstructor
 @Getter @Setter
@@ -20,5 +21,10 @@ public class Coordinates implements Serializable {
 		if (o == null || getClass() != o.getClass()) return false;
 		Coordinates coordinates = (Coordinates) o;
 		return rank == coordinates.rank && file == coordinates.file;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(rank, file);
 	}
 }
